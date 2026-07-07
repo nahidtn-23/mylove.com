@@ -1,113 +1,67 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Surprise ❤️</title>
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    background: linear-gradient(to right,#ff9a9e,#fad0c4);
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 100px;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-h1{
-    color: #e91e63;
-    font-size: 45px;
+.page{
+display:none;
+text-align:center;
 }
 
-p{
-    font-size: 22px;
-}
-
-button{background:#e91e63;
-    color:white;
-    border:none;
-    padding:15px 30px;
-    border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 20px #e91e63;
-    }
-
-img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid white;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-    animation: float 3s ease-in-out infinite;
-    transition:0.5s;
-}
-
-img:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 40px #ff69b4;
-}
-
-button:hover{
-    background:#c2185b;
-    transform:scale(1.08);
-    box-shadow:0 0 35px #ff1493;
-}
-
-#message{
-    animation: zoom 0.8s;
-}
-
-@keyframes zoom{
-    from{
-        transform:scale(0.5);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-}
-
-@keyframes fall{
-    from{
-        transform:translateY(-50px);
-    }
-    to{
-        transform:translateY(110vh);
-    }
+.active{
+display:block;
 }
 
 .card{
-    width:420px;
-    margin:40px auto;
-    background:rgba(255,255,255,.25);
-    padding:30px;
-    border-radius:25px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 0 30px rgba(0,0,0,.2);
-    animation: fadeIn 1.5s ease;
+background:white;
+padding:30px;
+border-radius:20px;
+width:360px;
+box-shadow:0 0 25px rgba(0,0,0,.2);
 }
 
-@keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-10px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
+button{
+margin-top:20px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#e91e63;
+color:white;
+cursor:pointer;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
+button:hover{
+transform:scale(1.05);
+}
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+#heart{
+position:absolute;
+font-size:70px;
+cursor:pointer;
+left:200px;
+top:220px;
+user-select:none;
 }
 
 </style>
@@ -116,82 +70,141 @@ button:hover{
 
 <body>
 
+<div id="page1" class="page active">
+
 <div class="card">
 
-<img src="photo.jpg" alt="Photo">
+<h1>🌸 হাই! 🌸</h1>
 
-<button onclick="showClickMessage()">এখানে touch করো... ❤️</button>
-
-<p id="clickMessage" style="display:none;">
-সবসময় তোমার বুকে যত্ন করে রেখে দিয়ো আমাকে। 💖
+<p style="margin-top:20px;">
+তোমার জন্য একটা ছোট্ট খেলা আছে। 😊
 </p>
 
-<h1 id="title"></h1>
+<p style="margin-top:10px;">
+শুরু করতে নিচের বাটনে ক্লিক করো।
+</p>
 
-<p>এটি আমার প্রথম ওয়েবপেজ।</p>
+<button onclick="startGame()">
+▶️ Start
+</button>
 
-<button onclick="showMessage()">💌 Open My Heart</button>
+</div>
 
-<div id="message" style="display:none; margin-top:20px; background:white; padding:20px; border-radius:15px; width:320px; margin-left:auto; margin-right:auto; box-shadow:0 0 20px rgba(0,0,0,.2);">
+</div>
 
-<h2>❤️ তোমার জন্য ❤️</h2>
+<div id="page2" class="page">
 
-<p>
-তুমি আমার জীবনের খুব মূল্যবান একজন মানুষ।<br><br>
+<h2 style="margin-top:30px;">
+❤️ আমাকে ধরতে পারো? ❤️
+</h2>
 
-তোমার হাসি আমার কাছে খুব সুন্দর লাগে।<br><br>
+<div id="heart">❤️</div>
 
-রাগ অভিমান ঝগড়া সব শেষে আমি শুধু তোমাকেই ভালোবাসি। সারাজীবন তোমার হাতে হাত রেখে কাটাতে চাই, তোমার বুকে থাকতে চাই সারাজীবন।<br><br>
+</div>
 
-অনেক ভালোবাসি তোমায় তিশা। 🌸
+<div id="page3" class="page">
+
+<div class="card">
+
+<h2>🎁 তোমার জন্য একটি বিশেষ উপহার অপেক্ষা করছে 💝</h2>
+
+<p style="margin-top:15px;">
+উপহারটি নিতে চাইলে নিচের বাটনে ক্লিক করো।
+</p>
+
+<div id="giftBox" onclick="openGift()"
+style="
+font-size:120px;
+cursor:pointer;
+margin-top:20px;
+transition:0.5s;">
+🎁
+</div>
+
+<p>উপহারটি খুলতে 🎁-এ ক্লিক করো</p>
+
+</div>
+
+</div>
+
+<div id="page4" class="page">
+
+<div class="card">
+
+<img src="photo.jpg"
+style="width:180px;height:180px;border-radius:50%;object-fit:cover;">
+
+<h2 style="margin-top:15px;">❤️ শুধু তোমার জন্য ❤️</h2>
+
+<p style="margin-top:15px;line-height:30px;">
+
+উপহার হিসেবে আমি নিজেকেই তোমায় দিয়ে দিলাম।<br>
+
+ তোমার প্রিয়, নাহিদ💖
+
 </p>
 
 </div>
 
-<script>
-function showMessage(){
-    document.getElementById("message").style.display="block";
-}
-</script>
-
-<script>
-const text = "💗 তোমার জন্য 💗";
-let i = 0;
-
-function typeTitle() {
-    if (i < text.length) {
-        document.getElementById("title").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeTitle, 120);
-    }
-}
-
-typeTitle();
-</script>
-
-<script>
-for(let i=0;i<30;i++){
- let heart=document.createElement("div");
- heart.innerHTML="❤️";
- heart.style.position="fixed";
- heart.style.left=Math.random()*100+"vw";
- heart.style.top="-50px";
- heart.style.fontSize=(20+Math.random()*20)+"px";
- heart.style.animation="fall "+(3+Math.random()*4)+"s linear infinite";
- document.body.appendChild(heart);
-}
-</script>
-
 </div>
 
 <script>
-function showClickMessage(){
-document.getElementById("clickMessage").style.display="block";
+
+let count=0;
+
+function startGame(){
+
+document.getElementById("page1").classList.remove("active");
+document.getElementById("page2").classList.add("active");
+
 }
 
-function showMessage(){
-document.getElementById("message").style.display="block";
+const heart=document.getElementById("heart");
+
+heart.addEventListener("mouseover",function(){
+
+if(count<10){
+
+let x=Math.random()*(window.innerWidth-100);
+
+let y=Math.random()*(window.innerHeight-100);
+
+heart.style.left=x+"px";
+heart.style.top=y+"px";
+
+count++;
+
 }
+
+});
+
+heart.addEventListener("click",function(){
+
+if(count>=10){
+
+document.getElementById("page2").classList.remove("active");
+document.getElementById("page3").classList.add("active");
+
+}
+
+});
+
+function openGift(){
+
+let box=document.getElementById("giftBox");
+
+box.innerHTML="📦";
+
+setTimeout(function(){
+
+document.getElementById("page3").classList.remove("active");
+
+document.getElementById("page4").classList.add("active");
+
+},1000);
+
+}
+
 </script>
 
 </body>
